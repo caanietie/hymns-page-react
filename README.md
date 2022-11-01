@@ -6,4 +6,4 @@ To know how to send a request to the server, please read the information on the 
 * Start the Rails server
 * Get [this work](https://github.com/caanietie/hymns-page-react)
 * Run `npm start`
-* Enjoy :pizzas: :baby_bottle: :baby_bottle:
+* Enjoy :pizza: :baby_bottle: :baby_bottle:
