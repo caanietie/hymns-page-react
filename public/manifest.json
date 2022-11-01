@@ -1,6 +1,6 @@
 {
-  "short_name": "Hymns",
-  "name": "Gospel Hymns and Songs",
+  "short_name": "Hymns Page",
+  "name": "Single Page Hymns App",
   "icons": [
     {
       "src": "favicon.ico",

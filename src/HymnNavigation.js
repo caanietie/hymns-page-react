@@ -1,6 +1,6 @@
-import React, { Component } from "react";
 import PropTypes from "prop-types";
 import HymnTitle from "./HymnTitle";
+import React, { Component } from "react";
 import { CSSTransitionGroup } from "react-transition-group";
 
 export default class HymnNavigation extends Component {
@@ -33,8 +33,11 @@ export default class HymnNavigation extends Component {
           transitionEnterTimeout={500}
           transitionLeaveTimeout={500}
           transitionAppear={true}
-          transitionAppearTimeout={500}>
-          <li className="HymnTitle randomHymn" onClick={this.handleRandomHymn}>
+          transitionAppearTimeout={500}
+        >
+          <li className="HymnTitle randomHymn"
+            onClick={this.handleRandomHymn}
+          >
             Random Hymns
           </li>
           {hymnTitles}

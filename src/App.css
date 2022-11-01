@@ -6,10 +6,12 @@
 
 h1 {
   z-index: 1;
+  padding: 15px 0;
   font-size: 200%;
   color: #3b414c;
-  padding: 15px 0;
+  text-align: center;
   letter-spacing: 5px;
+  white-space: normal;
 }
 
 h2 {
@@ -85,7 +87,7 @@ ul {
   display: inline-block;
 }
 
-.HymnNavigation:not(:last-child):after {
+.HymnNavigation:not(:last-child)::after {
   top: 0;
   right: 0;
   width: 1px;
@@ -108,6 +110,10 @@ ul {
   background-color: rgba(255, 255, 255, 0.5);
 }
 
+.pointerEvent:not(.HymnTitle__clicked):hover {
+  background-color: rgb(230, 230, 230);
+}
+
 .randomHymn {
   cursor: pointer;
   margin-bottom: 25px;
@@ -126,6 +132,8 @@ ul {
   color: grey;
   margin: 10% auto;
   padding: 40px 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 40px;
   border: 1px double lightgrey;
 }
 
@@ -159,7 +167,7 @@ ul {
 }
 
 .HymnBody>span>*:nth-child(odd) {
-  background-color: rgba(240, 255, 255, 0.4);
+  background-color: rgba(240, 255, 255, 0.5);
 }
 
 .HymnTitle__clicked {
@@ -182,8 +190,15 @@ ul {
   font-size: 18px;
 }
 
-.pointerEnter {
-  background-color: rgb(230, 230, 230);
+.HymnFooter {
+  padding: 2%;
+  display: flex;
+  border-radius: 0;
+  margin: 2px 5px 0;
+  border-width: 1.5px;
+  flex-direction: column;
+  border-color: rgb(5, 95, 130);
+  background-color: rgba(173, 216, 230, 0.4);
 }
 
 /***** Styles for transition *****/

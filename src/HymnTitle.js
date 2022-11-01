@@ -5,18 +5,18 @@ export default class HymnTitle extends Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
-    this.handlePointerEnter = this.handlePointerEnter.bind(this);
-    this.handlePointerLeave = this.handlePointerLeave.bind(this);
   }
   render() {
-    let titleClicked = "HymnTitle"
-    const borderLeft = { borderLeft: "7px solid lightblue", cursor: "pointer" };
+    let titleClicked = "HymnTitle pointerEvent";
     if (this.props.colored) titleClicked += " HymnTitle__clicked";
     return (
-      <li className={titleClicked} style={borderLeft}
+      <li className={titleClicked}
         onClick={this.handleClick}
-        onPointerEnter={this.handlePointerEnter}
-        onPointerLeave={this.handlePointerLeave}>
+        style={{
+          cursor: "pointer",
+          borderLeft: "7px solid lightblue"
+        }}
+      >
         {this.props.hymnTitle}
       </li>
     )
@@ -25,14 +25,6 @@ export default class HymnTitle extends Component {
     const { showHymnBody } = this.props.taskCallback;
     this.props.clickedHymn(this.props.hymnId);
     showHymnBody(this.props.hymnId);
-  }
-  handlePointerEnter(event) {
-    if (!event.target.classList.contains("HymnTitle__clicked"))
-      event.target.classList.add("pointerEnter");
-  }
-  handlePointerLeave(event) {
-    if (event.target.classList.contains("pointerEnter"))
-      event.target.classList.remove("pointerEnter");
   }
 }
 HymnTitle.propTypes = {

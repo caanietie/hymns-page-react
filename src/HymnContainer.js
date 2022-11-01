@@ -4,6 +4,7 @@ import HymnBoard from "./HymnBoard";
 import HymnHeader from "./HymnHeader";
 import HymnNavigation from "./HymnNavigation";
 import HymnError from "./HymnError";
+import HymnFooter from "./HymnFooter";
 
 export default class HymnContainer extends Component {
   constructor(props) {
@@ -19,7 +20,7 @@ export default class HymnContainer extends Component {
       chorus: hymn.hymn.chorus, stanzas: hymn.hymn.stanzas
     }));
     return (
-      <div className="HymnContainer">
+      <div className="HymnContainer" data-testid="HymnContainer">
         <HymnHeader searchCallback={{
           searchValue: this.state.searchValue,
           searchChangeFunc: this.handleSearchChange
@@ -40,6 +41,7 @@ export default class HymnContainer extends Component {
               </div>
             )
         }
+        <HymnFooter />
       </div>
     )
   }
