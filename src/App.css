@@ -1,38 +1,259 @@
-.App {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  z-index: 1;
+  font-size: 200%;
+  color: #3b414c;
+  padding: 15px 0;
+  letter-spacing: 5px;
+}
+
+h2 {
+  z-index: 1;
+  font-size: 120%;
+  font-weight: 500;
+  font-style: italic;
+  letter-spacing: 5px;
+}
+
+.HymnContainer {
+  height: 100%;
+  white-space: nowrap;
+}
+
+.HymnHeader {
+  margin: 2px 5px 10px 5px;
+}
+
+.HymnHeader>*:not(img) {
+  display: flex;
+  padding: 25px 0;
+  align-items: center;
+  font-family: Helvetica;
+  flex-direction: column;
+  background: linear-gradient(to right bottom,
+      rgba(240, 255, 255, 0.8) 0%,
+      rgba(173, 216, 230, 0.8) 50%,
+      rgba(240, 255, 255, 0.8) 100%) fixed;
+}
+
+.header {
+  top: 0;
+  width: 100%;
+  opacity: 0.1;
+  position: absolute;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.searchHymnsGroup {
+  z-index: 1;
+  width: fit-content;
+  margin-bottom: 15px;
+}
+
+.searchHymnsGroup>* {
+  padding: 5px;
+  border-radius: 5px;
+  font: 16px/1 sans-serif;
+  border: 1px solid #e5e5df;
+  background-color: rgba(255, 255, 255, 0.5);
+  outline: rgba(173, 216, 230, 0.8) double 1px;
+}
+
+.searchHymnsInput {
+  width: 80%;
+  margin-left: 10px;
+}
+
+.HymnNavigation {
+  width: 40%;
+  height: 700px;
+  overflow: auto;
+  padding: 0 20px;
+  position: relative;
+  vertical-align: top;
+  white-space: normal;
+  display: inline-block;
+}
+
+.HymnNavigation:not(:last-child):after {
+  top: 0;
+  right: 0;
+  width: 1px;
+  height: 99%;
+  content: "";
+  position: relative;
+  background: linear-gradient(to bottom,
+      #eee 0%, #ccc 50%, #eee 100%) fixed;
+}
+
+.HymnTitle {
+  z-index: 1;
+  padding: 8px;
+  overflow: auto;
+  margin: 0 0 5px 0;
+  position: relative;
+  border-radius: 3px;
+  border: 1px solid #e5e5df;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 1);
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.randomHymn {
+  cursor: pointer;
+  margin-bottom: 25px;
+  background-color: rgba(173, 216, 230, 0.5)
+}
+
+.noHymn {
+  font-size: 25px;
+  font-weight: 500;
+  text-align: center;
+  white-space: normal;
+}
+
+.HymnError {
+  width: 60%;
+  color: grey;
+  margin: 10% auto;
+  padding: 40px 20px;
+  border: 1px double lightgrey;
+}
+
+.HymnError::first-letter {
+  font-size: 70px;
+  color: lightpink;
+}
+
+.HymnSelect {
+  top: 50%;
+  position: relative;
+  color: lightgrey;
+  transform: translateY(-50%);
+}
+
+.HymnBoard {
+  width: 58%;
+  background-color: transparent;
+}
+
+.HymnBoard__title {
+  font-size: 25px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.HymnBoard__author {
+  color: gray;
+  text-align: right;
+  font: 17px/2 sans-serif;
+  font-style: italic;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.HymnBody>span>*:nth-child(odd) {
+  background-color: rgba(240, 255, 255, 0.4);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.HymnTitle__clicked {
+  transition: 1s;
+  background-color: rgba(173, 216, 230, 0.8);
 }
 
-.App-link {
-  color: #61dafb;
+.chorus {
+  margin-top: 8px;
+  margin-left: 8%;
+  font-style: italic;
+  margin-bottom: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.stanzaChorus:not(:last-child) {
+  margin-bottom: 25px;
+}
+
+.line {
+  font-size: 18px;
+}
+
+.pointerEnter {
+  background-color: rgb(230, 230, 230);
+}
+
+/***** Styles for transition *****/
+
+.SearchHymns-appear {
+  opacity: 0;
+  transform: translateY(400px);
+}
+
+.SearchHymns-appear.SearchHymns-appear-active {
+  opacity: 1;
+  transition: 0.5s;
+  transform: translatey(0);
+}
+
+.Header-appear {
+  opacity: 0;
+  transform: translateY(-100px);
+}
+
+.Header-appear.Header-appear-active {
+  opacity: 1;
+  transition: 0.3s;
+  transform: translateY(0);
+}
+
+.HymnTitle_clicked-enter,
+.HymnTitle_clicked-appear {
+  opacity: 0;
+  transform: translateX(-250px);
+}
+
+.HymnTitle_clicked-enter.HymnTitle_clicked-enter-active,
+.HymnTitle_clicked-appear.HymnTitle_clicked-appear-active {
+  opacity: 1;
+  transition: 0.5s;
+  transform: translateX(0);
+}
+
+.HymnTitle_clicked-leave {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.HymnTitle_clicked-leave.HymnTitle_clicked-leave-active {
+  opacity: 0;
+  transition: 0.5s;
+  transform: translateX(-250px);
+}
+
+.BoardHeader-enter,
+.BoardHeader-appear {
+  opacity: 0;
+  transform: translateX(800px);
+}
+
+.BoardHeader-enter.BoardHeader-enter-active,
+.BoardHeader-appear.BoardHeader-appear-active {
+  opacity: 1;
+  transition: 0.5s;
+  transform: translateX(0);
+}
+
+.BoardHeader-leave {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.BoardHeader-leave.BoardHeader-leave-active {
+  opacity: 0;
+  transition: 0.5s;
+  transform: translateX(800px);
 }
